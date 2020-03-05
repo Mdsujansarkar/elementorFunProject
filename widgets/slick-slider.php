@@ -34,7 +34,7 @@ class SlickSlider extends Widget_Base {
    * @return string Widget title.
    */
   public function get_title() {
-    return __( 'Slick Slider', 'elementor-awesomesauce' );
+    return __( 'Slick Slider', 'slick-slider' );
   }
  
   /**
@@ -81,34 +81,34 @@ class SlickSlider extends Widget_Base {
     $this->start_controls_section(
       'section_content',
       [
-        'label' => __( 'Content', 'elementor-awesomesauce' ),
+        'label' => __( 'Content', 'slick-slider' ),
       ]
     );
  
     $this->add_control(
       'title',
       [
-        'label' => __( 'Title', 'elementor-awesomesauce' ),
+        'label' => __( 'Title', 'slick-slider' ),
         'type' => Controls_Manager::TEXT,
-        'default' => __( 'Title', 'elementor-awesomesauce' ),
+        'default' => __( 'Title', 'slick-slider' ),
       ]
     );
  
     $this->add_control(
       'description',
       [
-        'label' => __( 'Description', 'elementor-awesomesauce' ),
+        'label' => __( 'Description', 'slick-slider' ),
         'type' => Controls_Manager::TEXTAREA,
-        'default' => __( 'Description', 'elementor-awesomesauce' ),
+        'default' => __( 'Description', 'slick-slider' ),
       ]
     );
  
     $this->add_control(
       'content',
       [
-        'label' => __( 'Content', 'elementor-awesomesauce' ),
+        'label' => __( 'Content', 'slick-slider' ),
         'type' => Controls_Manager::WYSIWYG,
-        'default' => __( 'Content', 'elementor-awesomesauce' ),
+        'default' => __( 'Content', 'slick-slider' ),
       ]
     );
  
