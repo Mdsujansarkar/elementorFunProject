@@ -1,5 +1,5 @@
 <?php
-namespace ElementorSlickSlider\Widgets;
+namespace ElementorFunProject\Widgets;
  
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * @since 1.1.0
  */
-class SlickSlider extends Widget_Base {
+class FunProject extends Widget_Base {
  
   /**
    * Retrieve the widget name.
@@ -21,7 +21,7 @@ class SlickSlider extends Widget_Base {
    * @return string Widget name.
    */
   public function get_name() {
-    return 'slickslider';
+    return 'FunProject';
   }
  
   /**
@@ -34,7 +34,7 @@ class SlickSlider extends Widget_Base {
    * @return string Widget title.
    */
   public function get_title() {
-    return __( 'Slick Slider', 'slick-slider' );
+    return __( 'Fun Project', 'fun-project' );
   }
  
   /**
@@ -81,34 +81,45 @@ class SlickSlider extends Widget_Base {
     $this->start_controls_section(
       'section_content',
       [
-        'label' => __( 'Content', 'slick-slider' ),
+        'label' => __( 'Content', 'fun-project' ),
+        'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+      ]
+    );
+    $this->add_control(
+      'image',
+      [
+        'label' => __( 'Choose Image', 'plugin-domain' ),
+        'type' => \Elementor\Controls_Manager::MEDIA,
+        'default' => [
+          'url' => \Elementor\Utils::get_placeholder_image_src(),
+        ],
       ]
     );
  
     $this->add_control(
       'title',
       [
-        'label' => __( 'Title', 'slick-slider' ),
+        'label' => __( 'Title', 'fun-project' ),
         'type' => Controls_Manager::TEXT,
-        'default' => __( 'Title', 'slick-slider' ),
+        'default' => __( 'Separate settings per breakpoint', 'fun-project' ),
       ]
     );
  
     $this->add_control(
       'description',
       [
-        'label' => __( 'Description', 'slick-slider' ),
+        'label' => __( 'Description', 'fun-project' ),
         'type' => Controls_Manager::TEXTAREA,
-        'default' => __( 'Description', 'slick-slider' ),
+        'default' => __( 'Donec id ornare dui. Aenean tristique condimentum elit, quis blandit nisl varius sit amet. Sed eleifend felis quis massa viverra', 'fun-project' ),
       ]
     );
  
     $this->add_control(
       'content',
       [
-        'label' => __( 'Content', 'slick-slider' ),
+        'label' => __( 'Content', 'fun-project' ),
         'type' => Controls_Manager::WYSIWYG,
-        'default' => __( 'Content', 'slick-slider' ),
+        'default' => __( 'Content', 'fun-project' ),
       ]
     );
  
@@ -130,11 +141,35 @@ class SlickSlider extends Widget_Base {
  
     $this->add_inline_editing_attributes( 'title', 'none' );
     $this->add_inline_editing_attributes( 'description', 'basic' );
-    $this->add_inline_editing_attributes( 'content', 'advanced' );
+    $this->add_render_attribute( 'title', 'class', 'title' );
+    $this->add_render_attribute( 'description', 'class', 'description' );
     ?>
-    <h2 <?php echo $this->get_render_attribute_string( 'title' ); ?>><?php echo $settings['title']; ?></h2>
-    <div <?php echo $this->get_render_attribute_string( 'description' ); ?>><?php echo $settings['description']; ?></div>
-    <div <?php echo $this->get_render_attribute_string( 'content' ); ?>><?php echo $settings['content']; ?></div>
+    <div class="fun-project">
+    <div class="container">
+        <div class="Modern-Slider">
+            <!-- Item -->
+            <div class="item">
+              <div class="img-fill">
+                <img src="<?php echo $settings['image']['url']; ?>" alt="">
+                <div class="info">
+                  <div>
+                    <h3  <?php echo $this->get_render_attribute_string( 'title' ); ?> >
+                      <?php echo $settings['title']; ?>
+                      
+                    </h3>
+                    <h5 <?php echo $this->get_render_attribute_string( 'description' ); ?> >
+                      <?php echo $settings['description']; ?>
+                        
+                      </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- // Item -->
+          </div>
+    </div>
+</div>
+
     <?php
   }
  
@@ -152,11 +187,11 @@ class SlickSlider extends Widget_Base {
     <#
     view.addInlineEditingAttributes( 'title', 'none' );
     view.addInlineEditingAttributes( 'description', 'basic' );
-    view.addInlineEditingAttributes( 'content', 'advanced' );
     #>
+    <img src="{{ settings.image.url }}">
     <h2 {{{ view.getRenderAttributeString( 'title' ) }}}>{{{ settings.title }}}</h2>
     <div {{{ view.getRenderAttributeString( 'description' ) }}}>{{{ settings.description }}}</div>
-    <div {{{ view.getRenderAttributeString( 'content' ) }}}>{{{ settings.content }}}</div>
+  
     <?php
   }
 }

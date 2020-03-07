@@ -1,5 +1,6 @@
 <?php
-namespace ElementorSlickSlider;
+namespace ElementorFunProject;
+
  
 /**
  * Class Plugin
@@ -37,7 +38,65 @@ class Plugin {
            
     return self::$_instance;
   }
+   /**
+   *  Plugin class constructor
+   *
+   * Register plugin action hooks and filters
+   *
+   * @since 1.2.0
+   * @access public
+   */
+  public function __construct() {
+    // Text Domain Load
+    add_action( 'plugins_loaded', [ $this, 'loadtext_domain']);
+    // Register widget scripts
+    add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
  
+    // Register widgets
+    add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
+    // Widget Style Enqueue
+    add_action( 'wp_enqueue_scripts', [ $this, 'ele_slick_slider'] );
+  
+    //bootstrap main css
+    add_action( 'wp_enqueue_scripts', [ $this, 'ele_slick_slider_bootstrap']);
+  
+    
+  }
+  
+  /**
+   * loadtext_domain
+   *
+   * Load text domain.
+   *
+   * @since 1.2.0
+   * @access public
+   */
+  public function loadtext_domain() {
+    load_plugin_textdomain( 'fun-project', false, plugin_dir_url(__FILE__) . "/languages");
+  }
+  
+  /**
+   * ele_slick_slider_bootstrap
+   *
+   * Fonts Load
+   *
+   * @since 1.2.0
+   * @access public
+   */
+  public function ele_slick_slider_bootstrap() {
+    wp_enqueue_style( 'ele-slick-slider-bootstrap-main', '//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
+  }
+  /**
+   * ele_slick_slider
+   *
+   * Load .
+   *
+   * @since 1.2.0
+   * @access public
+   */
+  public function ele_slick_slider() {
+    wp_enqueue_style( 'ele-slick-slider-style', plugin_dir_url(__FILE__) . "assets/css/custom.css");
+  }
   /**
    * widget_scripts
    *
@@ -59,7 +118,8 @@ class Plugin {
    * @access private
    */
   private function include_widgets_files() {
-    require_once( __DIR__ . '/widgets/slick-slider.php' );
+    require_once( __DIR__ . '/widgets/fun-project.php' );
+    require_once( __DIR__ . '/widgets/dual-heading.php' );
   }
  
   /**
@@ -75,25 +135,11 @@ class Plugin {
     $this->include_widgets_files();
  
     // Register Widgets
-    \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\SlickSlider() );
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\FunProject() );
+    // 
+    \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\DualHeading() );
   }
  
-  /**
-   *  Plugin class constructor
-   *
-   * Register plugin action hooks and filters
-   *
-   * @since 1.2.0
-   * @access public
-   */
-  public function __construct() {
- 
-    // Register widget scripts
-    add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
- 
-    // Register widgets
-    add_action( 'elementor/widgets/widgets_registered', [ $this, 'register_widgets' ] );
-  }
 }
  
 // Instantiate Plugin Class

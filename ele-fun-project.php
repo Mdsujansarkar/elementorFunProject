@@ -1,12 +1,13 @@
 <?php
 /**
- * Plugin Name: Elementor Slick Slider
- * Description: Custom Slick Slider custom widgets.
+ * Plugin Name: Elementor Fun Project
+ * Description: Elementor Fun Project widgets.
  * Plugin URI:  https://github.com/Mdsujansarkar/elementorSlickSlider
  * Version:     1.0.0
  * Author:      Sujan Miya
  * Author URI:  https://sujanfarm.wordpress.com/
- * Text Domain: slick-slider
+ * Text Domain: fun-project
+ * Domain Path: /languages
  */
  
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -22,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * Any custom code should go inside Plugin Class in the plugin.php file.
  * @since 1.0.0
  */
-final class Elementor_Slick_Slider {
+final class Elementor_Fun_Project {
  
   /**
    * Plugin Version
@@ -73,7 +74,7 @@ final class Elementor_Slick_Slider {
    * @access public
    */
   public function i18n() {
-    load_plugin_textdomain( 'slick-slider' );
+    load_plugin_textdomain( 'fun-project' );
   }
  
   /**
@@ -127,9 +128,9 @@ final class Elementor_Slick_Slider {
  
     $message = sprintf(
       /* translators: 1: Plugin name 2: Elementor */
-      esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'slick-slider' ),
-      '<strong>' . esc_html__( 'Elementor Awesomesauce', 'slick-slider' ) . '</strong>',
-      '<strong>' . esc_html__( 'Elementor', 'slick-slider' ) . '</strong>'
+      esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'fun-project' ),
+      '<strong>' . esc_html__( 'Elementor Awesomesauce', 'fun-project' ) . '</strong>',
+      '<strong>' . esc_html__( 'Elementor', 'fun-project' ) . '</strong>'
     );
  
     printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
@@ -150,9 +151,9 @@ final class Elementor_Slick_Slider {
  
     $message = sprintf(
       /* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-      esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'slick-slider' ),
-      '<strong>' . esc_html__( 'Elementor Awesomesauce', 'slick-slider' ) . '</strong>',
-      '<strong>' . esc_html__( 'Elementor', 'slick-slider' ) . '</strong>',
+      esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'fun-project' ),
+      '<strong>' . esc_html__( 'Elementor Awesomesauce', 'fun-project' ) . '</strong>',
+      '<strong>' . esc_html__( 'Elementor', 'fun-project' ) . '</strong>',
       self::MINIMUM_ELEMENTOR_VERSION
     );
  
@@ -174,9 +175,9 @@ final class Elementor_Slick_Slider {
  
     $message = sprintf(
       /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-      esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'slick-slider' ),
-      '<strong>' . esc_html__( 'Elementor Awesomesauce', 'slick-slider' ) . '</strong>',
-      '<strong>' . esc_html__( 'PHP', 'slick-slider' ) . '</strong>',
+      esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'fun-project' ),
+      '<strong>' . esc_html__( 'Elementor Awesomesauce', 'fun-project' ) . '</strong>',
+      '<strong>' . esc_html__( 'PHP', 'fun-project' ) . '</strong>',
       self::MINIMUM_PHP_VERSION
     );
  
@@ -184,5 +185,5 @@ final class Elementor_Slick_Slider {
   }
 }
  
-// Instantiate Elementor_Slick_Slider.
-new Elementor_Slick_Slider();
+// Instantiate Elementor_Fun_Project.
+new Elementor_Fun_Project();
