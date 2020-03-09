@@ -57,24 +57,11 @@ final class Elementor_Fun_Project {
    */
   public function __construct() {
  
-    // Load translation
-    add_action( 'init', array( $this, 'i18n' ) );
  
     // Init Plugin
     add_action( 'plugins_loaded', array( $this, 'init' ) );
-  }
- 
-  /**
-   * Load Textdomain
-   *
-   * Load plugin localization files.
-   * Fired by `init` action hook.
-   *
-   * @since 1.2.0
-   * @access public
-   */
-  public function i18n() {
-    load_plugin_textdomain( 'fun-project' );
+    // Plugin Setting Page
+
   }
  
   /**
@@ -176,7 +163,7 @@ final class Elementor_Fun_Project {
     $message = sprintf(
       /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
       esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'fun-project' ),
-      '<strong>' . esc_html__( 'Elementor Awesomesauce', 'fun-project' ) . '</strong>',
+      '<strong>' . esc_html__( 'Elementor Fun Project', 'fun-project' ) . '</strong>',
       '<strong>' . esc_html__( 'PHP', 'fun-project' ) . '</strong>',
       self::MINIMUM_PHP_VERSION
     );

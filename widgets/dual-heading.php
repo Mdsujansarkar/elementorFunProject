@@ -105,7 +105,7 @@ class DualHeading extends Widget_Base {
         'type'        => \Elementor\Controls_Manager::TEXT,
         'input_type'  => 'text',
         'placeholder' => __( 'Heading One', 'fun-project' ),
-        'default'     => __( 'Quick Brown Fox', 'fun-project' ),
+        'default'     => __( 'Welcome, 6th Elementor Meetup.', 'fun-project' ),
       ]
     );
 
@@ -116,7 +116,7 @@ class DualHeading extends Widget_Base {
         'type'        => \Elementor\Controls_Manager::TEXT,
         'input_type'  => 'text',
         'placeholder' => __( 'Heading Two', 'fun-project' ),
-        'default'     => __( 'Jumps Over The Lazy Dog', 'fun-project' ),
+        'default'     => __( 'ARCom is Rock', 'fun-project' ),
       ]
     );
 
@@ -146,7 +146,7 @@ class DualHeading extends Widget_Base {
       [
         'label'     => __( 'Color', 'fun-project' ),
         'type'      => \Elementor\Controls_Manager::COLOR,
-        'default'   => '#ff0000',
+        'default'   => '#D30C5C',
         'selectors' => [
           '{{WRAPPER}} .heading_one' => 'color: {{VALUE}}'
         ]
@@ -178,7 +178,7 @@ class DualHeading extends Widget_Base {
       [
         'label'     => __( 'Color', 'fun-project' ),
         'type'      => \Elementor\Controls_Manager::COLOR,
-        'default'   => '#0000ff',
+        'default'   => '#4D2D71',
         'selectors' => [
           '{{WRAPPER}} .heading_two' => 'color: {{VALUE}}'
         ]
@@ -209,7 +209,7 @@ class DualHeading extends Widget_Base {
    */
   protected function render() {
 
-//    $settings   = $this->get_settings_for_display(); //and echo $settings['dummy_text']
+//    $settings   = $this->get_settings_for_display(); // echo $settings['string']
     $heading_one = $this->get_settings( 'heading_one' );
     $this->add_render_attribute( 'heading_one', 'class', 'heading_one' );
     $this->add_inline_editing_attributes( 'heading_one' );

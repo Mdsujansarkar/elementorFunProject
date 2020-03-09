@@ -114,16 +114,6 @@ class FunProject extends Widget_Base {
       ]
     );
  
-    $this->add_control(
-      'content',
-      [
-        'label' => __( 'Content', 'fun-project' ),
-        'type' => Controls_Manager::WYSIWYG,
-        'default' => __( 'Content', 'fun-project' ),
-      ]
-    );
- 
- 
     $this->end_controls_section();
   }
  
@@ -184,10 +174,10 @@ class FunProject extends Widget_Base {
    */
   protected function _content_template() {
     ?>
-    <#
+   <!--  <#
     view.addInlineEditingAttributes( 'title', 'none' );
     view.addInlineEditingAttributes( 'description', 'basic' );
-    #>
+    #> -->
     <img src="{{ settings.image.url }}">
     <h2 {{{ view.getRenderAttributeString( 'title' ) }}}>{{{ settings.title }}}</h2>
     <div {{{ view.getRenderAttributeString( 'description' ) }}}>{{{ settings.description }}}</div>
